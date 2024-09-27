@@ -6,12 +6,11 @@
 // i8, i16, i32, i64, i128: Signed integers
 // u8, u16, u32, u64, u128: Signed integers
 
-
 fn main() {
-    // let x: i32 = -42;
-    // let y: u64 = 100;
-    // println!("Signed integer: {}", x);
-    // println!("Unsigned integer: {}", y);
+    let x: i32 = -42;
+    let y: u64 = 100;
+    println!("Signed integer: {}", x);
+    println!("Unsigned integer: {}", y);
 
     //?? Floats [Floating Point Types]
     // f32, f64
@@ -30,26 +29,47 @@ fn main() {
     // arrays, tuples, slices, and strings (slice strings)
 
     // arrays
-    let numbers:[i32; 5] = [1,2,3,4,5];
+    let numbers: [i32; 5] = [1, 2, 3, 4, 5];
     println!("Array elements: {:?}", numbers);
     // let mix = [1,2,"apple", true];
     let fruits: [&str; 3] = ["apple", "mango", "orange"];
-    println!("Fruits array: {:?}", fruits); 
-    println!("Fruits array 1st element: {}", fruits[0]); 
-    println!("Fruits array 2nd element: {}", fruits[1]); 
-    println!("Fruits array 3rd element: {}", fruits[2]); 
+    println!("Fruits array: {:?}", fruits);
+    println!("Fruits array 1st element: {}", fruits[0]);
+    println!("Fruits array 2nd element: {}", fruits[1]);
+    println!("Fruits array 3rd element: {}", fruits[2]);
 
     // tuples
-    let human: (String, i32, bool)= ("Alice".to_string(), 30, false);
+    let human: (String, i32, bool) = ("Alice".to_string(), 30, false);
     println!("Human tuple: {:?}", human);
-    let my_mix_tuple = ("Kratos",23, true,[1,2,3,4,5]);
+    let my_mix_tuple = ("Kratos", 23, true, [1, 2, 3, 4, 5]);
     println!("My mix tuple: {:?} ", my_mix_tuple);
 
     // slices
-    let number_slices = &[1,2,3,4,6];
-    println!("Num. Slices: {:?} ",number_slices);
-    
-    let animal_slices = &[1,2,3,4,6];
-    println!("Num. Slices: {:?} ",number_slices);
+    let number_slices = &[1, 2, 3, 4, 6];
+    println!("Num. Slices: {:?} ", number_slices);
 
-}   
+    let animal_slices: &[&str] = &["Elephalt", "Lion", "Crocodile"];
+    println!("Animal Slices: {:?} ", animal_slices);
+
+    let book_slices: &[&String] = &[
+        &"Harry Potter".to_string(),
+        &"ZEN".to_string(),
+        &"BIBLE".to_string(),
+    ];
+    println!("Num. Slices: {:?} ", book_slices);
+
+    // Strings Vs String Slices (&str)
+    // Strings [ growable, mutable, owned string type ]
+
+    let mut stone_cold:String = String::from("Heck, ");
+    stone_cold.push_str("Yeah!");
+    println!("Stone cold says: {}", stone_cold); 
+     
+
+    // B- &str (String Slice)
+    let string:String = String::from("Hello, World!");
+    let slice: &str = &string[0..5];
+    println!("Slice Value: {}", slice);
+}
+
+
